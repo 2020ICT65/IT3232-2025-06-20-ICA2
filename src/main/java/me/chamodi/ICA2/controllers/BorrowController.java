@@ -24,4 +24,8 @@ public class BorrowController{
 		return new ResponseEntity<List<Borrow>> (service.findStudentByBookId(id),HttpStatus.OK);
 	}
 	
+    @GetMapping("/{StudentId}/{BookId}")
+	public ResponseEntity<String> BorrowBook(@PathVariable("StudentId") String sid,@PathVariable("BookId") String bid ){
+		return new ResponseEntity<String> (service.BorrowBook(sid,bid),HttpStatus.OK);
+	}
 }

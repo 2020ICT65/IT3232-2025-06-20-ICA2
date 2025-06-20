@@ -12,5 +12,7 @@ public interface BorrowRepo extends JpaRepository<Borrow, Integer>{
 	@Query("SELECT b FROM Borrow b WHERE b.book.id=?1")
 	public List<Borrow> findStudentByBookId(String id);
 	
+    @Query("SELECT COUNT(b) FROM Borrow b WHERE B.student.id = ?1 AND b.return='NO'")
+    public Integer unReturnBookCount(String id );
 }
 
